@@ -8,5 +8,11 @@ if (environment.production) {
   enableProdMode();
 }
 
+
+
+
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
+
+
+  // başlangıç dosyası denebilir. Browser üzerinde çalışacak ve Appmodule den başlayacak
