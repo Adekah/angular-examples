@@ -12,7 +12,7 @@
           <mat-form-field class="example-full-width">
             <input matInput placeholder="Add New Todo" #newTodo>
           </mat-form-field>
-          <button mat-raised-button color="primary" type="button" (click)="addTodo(newTodo)">Add</button>
+          <button mat-raised-button color="primary" type="submit" (click)="addTodo(newTodo)">Add</button>
         </form>
       </div>
     </div>
@@ -25,11 +25,11 @@
             <div
               cdkDropList
               #todoList="cdkDropList"
-              [cdkDropListData]="todo"
+              [cdkDropListData]="data.todo"
               [cdkDropListConnectedTo]="[processList]"
               class="example-list"
               (cdkDropListDropped)="drop($event)">
-              <div class="example-box" *ngFor="let item of todo" cdkDrag>
+              <div class="example-box" *ngFor="let item of data.todo" cdkDrag>
                 <img class="svg" src="assets/svg/time.png" alt="">{{item}}</div>
             </div>
           </div>
@@ -40,11 +40,11 @@
             <div
               cdkDropList
               #processList="cdkDropList"
-              [cdkDropListData]="process"
+              [cdkDropListData]="data.process"
               [cdkDropListConnectedTo]="[doneList,todoList]"
               class="example-list"
               (cdkDropListDropped)="drop($event)">
-              <div class="example-box" *ngFor="let item of process" cdkDrag>
+              <div class="example-box" *ngFor="let item of data.process" cdkDrag>
                 <img class="svg" src="assets/svg/processing.png" alt="">{{item}}</div>
             </div>
           </div>
@@ -55,11 +55,11 @@
             <div
               cdkDropList
               #doneList="cdkDropList"
-              [cdkDropListData]="done"
+              [cdkDropListData]="data.done"
               [cdkDropListConnectedTo]="[processList]"
               class="example-list"
               (cdkDropListDropped)="drop($event)">
-              <div class="example-box" *ngFor="let item of done" cdkDrag>
+              <div class="example-box" *ngFor="let item of data.done" cdkDrag>
                 <img class="svg" src="assets/svg/like.png" alt="">{{item}}</div>
             </div>
           </div>
